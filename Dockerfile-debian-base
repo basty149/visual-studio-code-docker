@@ -1,0 +1,21 @@
+FROM debian:11-slim
+
+RUN apt-get update && \
+    apt-get install -y wget libswt-gtk-4-jni dbus-x11 libsecret-1-0 gpg && \
+    wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64 -O /tmp/tmpvscode.deb && \
+    apt-get install -y /tmp/tmpvscode.deb && \
+    rm /tmp/tmpvscode.deb && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    useradd -u 1000 -ms /bin/bash vscode
+
+USER vscode
+
+COPY --chown=vscode:vscode entrypoint.sh /home/vscode/entrypoint.sh
+
+# To avoid : Failed to move to new namespace: PID namespaces supported, Network namespace supported, but failed: errno = Operation not permitted
+ENTRYPOINT [ "/home/vscode/entrypoint.sh" ]
+
+
+
+
