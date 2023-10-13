@@ -2,5 +2,4 @@
 
 echo "Lancement de VISUAL STUDIO CODE sur : " $DISPLAY
 
-code --no-sandbox
-sleep infinity
+code -w --no-sandbox
