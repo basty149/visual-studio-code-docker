@@ -27,14 +27,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Build and push ECLIPSE 2023.06
-      uses: docker/build-push-action@v5
-      with:
-        context: .
-        push: true
-        tags: basty149/visual-studio-code:1.83.1
-        file: Dockerfile
-    - name: Build and push VISUAL STUDIO CODE
+    - name: Build and push VISUAL STUDIO CODE BASE
       uses: docker/build-push-action@v5
       with:
           context: .
