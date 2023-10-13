@@ -9,9 +9,9 @@ RUN apt-get update && \
 
 USER vscode
 
-RUN wget -O /tmp/python.vsix.gz https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-python/vsextensions/python/2023.19.12860613/vspackage && \
-    gunzip /tmp/python.vsix.gz && \
-    code --install-extension /tmp/python.vsix && \
+COPY --chown=vscode:vscode ms-python.python-2023.19.12860613.vsix /tmp/python.vsix
+
+RUN code --install-extension /tmp/python.vsix && \
     rm /tmp/python.vsix
 
 
