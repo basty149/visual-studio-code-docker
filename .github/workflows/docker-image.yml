@@ -34,3 +34,10 @@ jobs:
           push: true
           tags: basty149/visual-studio-code:1.83.1
           file: Dockerfile-debian-base
+    - name: Build and push VISUAL STUDIO CODE PYTHON
+      uses: docker/build-push-action@v5
+      with:
+          context: .
+          push: true
+          tags: basty149/visual-studio-code:1.83.1-python
+          file: Dockerfile-debian-python
