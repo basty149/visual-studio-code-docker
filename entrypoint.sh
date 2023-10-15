@@ -3,4 +3,12 @@
 echo "Lancement de VISUAL STUDIO CODE sur : " $DISPLAY
 
 code --no-sandbox
-sleep infinity
+
+# Check if VScode always running every 5 seconds
+# because of multi window's mode
+while [ $(ps -ef | grep "code --no-sandbox") ]
+do
+  sleep 5
+done
+
+exit 0
