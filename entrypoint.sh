@@ -2,7 +2,7 @@
 
 echo "Lancement de VISUAL STUDIO CODE sur : " $DISPLAY
 
-code --no-sandbox
+/usr/share/code/bin/code --no-sandbox
 
 # Check if VScode always running every 5 seconds
 # because of multi window's mode
